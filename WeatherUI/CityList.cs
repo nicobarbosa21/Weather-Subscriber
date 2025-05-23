@@ -5,7 +5,6 @@ public static class CityList
         "Mina Clavero",
         "Villa Carlos Paz",
         "Alta Gracia",
-        "Ceres",
         "Sunchales",
         "Buenos Aires",
         "Córdoba",

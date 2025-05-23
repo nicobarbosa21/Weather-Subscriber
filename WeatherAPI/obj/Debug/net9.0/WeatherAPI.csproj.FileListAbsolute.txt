@@ -328,3 +328,4 @@ C:\Endava\EndevLocal\Weather\WeatherAPI\obj\Debug\net9.0\refint\WeatherAPI.dll
 C:\Endava\EndevLocal\Weather\WeatherAPI\obj\Debug\net9.0\WeatherAPI.pdb
 C:\Endava\EndevLocal\Weather\WeatherAPI\obj\Debug\net9.0\WeatherAPI.genruntimeconfig.cache
 C:\Endava\EndevLocal\Weather\WeatherAPI\obj\Debug\net9.0\ref\WeatherAPI.dll
+C:\Endava\EndevLocal\Weather\WeatherAPI\obj\Debug\net9.0\WeatherAPI.sourcelink.json

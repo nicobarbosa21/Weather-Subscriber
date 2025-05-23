@@ -8,6 +8,7 @@
     <InputText @bind-Value="subscriber.Name" placeholder="Name" />
     <InputText @bind-Value="subscriber.Email" placeholder="Email" />
     <select @bind="subscriber.City">
+        <option value="" disabled>Select a city</option>
         @foreach (var c in cities)
         {
             <option value="@c">@c</option>

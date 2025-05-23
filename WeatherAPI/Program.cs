@@ -72,6 +72,18 @@ app.MapGet("/subscribers", (SubscriberService subscriberService) =>
 
 app.MapPost("/subscribers", (SubscriberService subscriberService, Subscriber subscriber) =>
 {
+    if (string.IsNullOrWhiteSpace(subscriber.Name) ||
+        string.IsNullOrWhiteSpace(subscriber.Email) ||
+        string.IsNullOrWhiteSpace(subscriber.City))
+    {
+        return Results.BadRequest("Name, Email, and City are required.");
+    }
+
+    if (subscriberService.GetSubscribers().Any(s => s.Email == subscriber.Email))
+    {
+        return Results.BadRequest("Email already exists.");
+    }
+    
     subscriberService.AddSubscriber(subscriber);
     return Results.Ok("Subscriber added!");
 });
