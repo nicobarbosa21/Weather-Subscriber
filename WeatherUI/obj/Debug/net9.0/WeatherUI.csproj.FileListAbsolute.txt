@@ -810,7 +810,6 @@ C:\Endava\EndevLocal\Weather\WeatherUI\obj\Debug\net9.0\scopedcss\bundle\Weather
 C:\Endava\EndevLocal\Weather\WeatherUI\obj\Debug\net9.0\scopedcss\projectbundle\WeatherUI.bundle.scp.css
 C:\Endava\EndevLocal\Weather\WeatherUI\obj\Debug\net9.0\blazor.build.boot-extension.json
 C:\Endava\EndevLocal\Weather\WeatherUI\obj\Debug\net9.0\blazor.boot.json
-C:\Endava\EndevLocal\Weather\WeatherUI\obj\Debug\net9.0\compressed\l7q9oz4934-8rbvw3on5j.gz
 C:\Endava\EndevLocal\Weather\WeatherUI\obj\Debug\net9.0\compressed\grqz1y216i-b02y481m1a.gz
 C:\Endava\EndevLocal\Weather\WeatherUI\obj\Debug\net9.0\compressed\tvucknz3ff-bqjiyaj88i.gz
 C:\Endava\EndevLocal\Weather\WeatherUI\obj\Debug\net9.0\compressed\dy5hgjp14k-c2jlpeoesf.gz
@@ -1069,11 +1068,12 @@ C:\Endava\EndevLocal\Weather\WeatherUI\obj\Debug\net9.0\WeatherUI.dll
 C:\Endava\EndevLocal\Weather\WeatherUI\obj\Debug\net9.0\refint\WeatherUI.dll
 C:\Endava\EndevLocal\Weather\WeatherUI\obj\Debug\net9.0\WeatherUI.pdb
 C:\Endava\EndevLocal\Weather\WeatherUI\obj\Debug\net9.0\ref\WeatherUI.dll
-C:\Endava\EndevLocal\Weather\WeatherUI\bin\Debug\net9.0\wwwroot\_framework\WeatherUI.55hhkqzfa1.wasm
-C:\Endava\EndevLocal\Weather\WeatherUI\bin\Debug\net9.0\wwwroot\_framework\WeatherUI.j2h7reqmrn.pdb
-C:\Endava\EndevLocal\Weather\WeatherUI\bin\Debug\net9.0\wwwroot\_framework\WeatherUI.55hhkqzfa1.wasm.gz
-C:\Endava\EndevLocal\Weather\WeatherUI\bin\Debug\net9.0\wwwroot\_framework\WeatherUI.j2h7reqmrn.pdb.gz
 C:\Endava\EndevLocal\Weather\WeatherUI\obj\Debug\net9.0\WeatherUI.sourcelink.json
-C:\Endava\EndevLocal\Weather\WeatherUI\obj\Debug\net9.0\compressed\r6ppoicghl-55hhkqzfa1.gz
-C:\Endava\EndevLocal\Weather\WeatherUI\obj\Debug\net9.0\compressed\fncit596vz-j2h7reqmrn.gz
-C:\Endava\EndevLocal\Weather\WeatherUI\obj\Debug\net9.0\compressed\orts1z7p23-dlu4gdenfl.gz
+C:\Endava\EndevLocal\Weather\WeatherUI\bin\Debug\net9.0\wwwroot\_framework\WeatherUI.myt2aa60qk.wasm
+C:\Endava\EndevLocal\Weather\WeatherUI\bin\Debug\net9.0\wwwroot\_framework\WeatherUI.30eu4rie64.pdb
+C:\Endava\EndevLocal\Weather\WeatherUI\bin\Debug\net9.0\wwwroot\_framework\WeatherUI.myt2aa60qk.wasm.gz
+C:\Endava\EndevLocal\Weather\WeatherUI\bin\Debug\net9.0\wwwroot\_framework\WeatherUI.30eu4rie64.pdb.gz
+C:\Endava\EndevLocal\Weather\WeatherUI\obj\Debug\net9.0\compressed\l7q9oz4934-qq5whw03gk.gz
+C:\Endava\EndevLocal\Weather\WeatherUI\obj\Debug\net9.0\compressed\r6ppoicghl-myt2aa60qk.gz
+C:\Endava\EndevLocal\Weather\WeatherUI\obj\Debug\net9.0\compressed\fncit596vz-30eu4rie64.gz
+C:\Endava\EndevLocal\Weather\WeatherUI\obj\Debug\net9.0\compressed\orts1z7p23-fvhkxuwsws.gz

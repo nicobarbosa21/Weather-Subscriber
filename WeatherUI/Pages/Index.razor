@@ -2,61 +2,97 @@
 @inject HttpClient Http
 @inject IJSRuntime JS
 
-<h3>Subscribe to Weather Notification</h3>
+<div class="text-center mb-5">
+    <i class="bi bi-cloud-sun weather-icon-glow"></i>
+    <h1 class="gradient-title mt-3 mb-2">Weather Notifier</h1>
+    <p class="lead text-muted mb-0" style="font-weight:500;">
+        Stay ahead of the weather. Get daily updates for your favorite city, right in your inbox.
+    </p>
+</div>
 
-<EditForm Model="subscriber" OnValidSubmit="HandleValidSubmit">
-    <InputText @bind-Value="subscriber.Name" placeholder="Name" />
-    <InputText @bind-Value="subscriber.Email" placeholder="Email" />
-    <select @bind="subscriber.City">
-        <option value="" disabled>Select a city</option>
-        @foreach (var c in cities)
-        {
-            <option value="@c">@c</option>
-        }
-    </select>
-    <button type="submit">Subscribe</button>
-</EditForm>
+    <div class="row justify-content-center">
+        <div class="col-md-7 col-lg-6 col-xl-10">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body p-4">
+                    <h4 class="section-title">Subscribe</h4>
+                    <EditForm Model="subscriber" OnValidSubmit="HandleValidSubmit">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <InputText @bind-Value="subscriber.Name" id="name" class="form-control" placeholder="Enter your name" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <InputText @bind-Value="subscriber.Email" id="email" class="form-control" placeholder="Enter your email" type="email" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="city" class="form-label">City</label>
+                            <select @bind="subscriber.City" id="city" class="form-select">
+                                <option value="" disabled selected>Select a city</option>
+                                @foreach (var c in cities)
+                                {
+                                    <option value="@c">@c</option>
+                                }
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 py-2 fs-5">Subscribe</button>
+                    </EditForm>
+                    @if (!string.IsNullOrEmpty(Message))
+                    {
+                        <div class="alert alert-info mt-3" role="alert">@Message</div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
 
-@if (!string.IsNullOrEmpty(Message))
-{
-    <div>@Message</div>
-}
-
-<h4 class="mt-4">Subscribers</h4>
-@if (subscribers == null)
-{
-    <p><em>Loading...</em></p>
-}
-else if (subscribers.Count == 0)
-{
-    <p>No subscribers yet.</p>
-}
-else
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>City</th>
-                <th>Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var sub in subscribers)
-            {
-                <tr>
-                    <td>@sub.Name</td>
-                    <td>@sub.Email</td>
-                    <td>@sub.City</td>
-                    <td>
-                        <button class="btn btn-danger btn-sm" @onclick="() => ConfirmDelete(sub.Email)">Delete</button>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h4 class="section-title">Subscribers</h4>
+                    @if (subscribers == null)
+                    {
+                        <p><em>Loading...</em></p>
+                    }
+                    else if (subscribers.Count == 0)
+                    {
+                        <p>No subscribers yet.</p>
+                    }
+                    else
+                    {
+                        <div class="table-responsive">
+                            <table class="table align-middle mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>City</th>
+                                        <th style="width: 80px;">Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var sub in subscribers)
+                                    {
+                                        <tr>
+                                            <td>@sub.Name</td>
+                                            <td>@sub.Email</td>
+                                            <td>@sub.City</td>
+                                            <td>
+                                                <button class="btn-delete" title="Delete"
+                                                        @onclick="() => ConfirmDelete(sub.Email)">
+                                                    <i class="bi bi-trash-fill fs-5"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+            </div>
+        </div>
+    </div>
+</div>
 
 @code {
     Subscriber subscriber = new();
@@ -98,4 +134,4 @@ else
         public string Email { get; set; } = "";
         public string City { get; set; } = "";
     }
- }
+}

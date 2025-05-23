@@ -112,3 +112,208 @@ code {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
     text-align: start;
 }
+
+/* Modern card shadow and hover effect */
+.card {
+    border-radius: 1rem;
+    transition: box-shadow 0.2s;
+}
+.card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+/* Stylish table */
+.table thead th {
+    background: #f8f9fa;
+    border-top: none;
+}
+.table tbody tr:hover {
+    background: #f1f3f5;
+}
+.btn-primary {
+    background: linear-gradient(90deg, #4f8cff 0%, #235390 100%);
+    border: none;
+}
+.btn-primary:focus, .btn-primary:hover {
+    background: linear-gradient(90deg, #235390 0%, #4f8cff 100%);
+}
+.form-label {
+    font-weight: 500;
+}
+
+/* Colorful circular delete button */
+.btn-delete {
+    background: linear-gradient(135deg, #ff6a6a 0%, #ffb86c 100%);
+    color: #fff !important;
+    border: none;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.2s, background 0.2s;
+    box-shadow: 0 2px 8px rgba(255, 106, 106, 0.15);
+}
+.btn-delete:hover, .btn-delete:focus {
+    background: linear-gradient(135deg, #ff4b4b 0%, #ff9800 100%);
+    box-shadow: 0 4px 16px rgba(255, 106, 106, 0.25);
+    color: #fff !important;
+}
+/* Main background: soft blue */
+body {
+    background: #f2f6ff;
+}
+
+/* Main container: white with a subtle blue shadow */
+.container.py-5 {
+    background: #fff;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 32px rgba(80, 102, 255, 0.08);
+}
+
+/* Card: subtle blue shadow and rounded */
+.card {
+    border-radius: 1.25rem;
+    transition: box-shadow 0.2s;
+    box-shadow: 0 2px 16px rgba(80, 102, 255, 0.10);
+}
+.card:hover {
+    box-shadow: 0 8px 32px rgba(80, 102, 255, 0.18);
+}
+
+/* Table header: gradient */
+.table thead tr {
+    background: linear-gradient(90deg, #7f53ac 0%, #647dee 100%);
+}
+.table thead th {
+    background: transparent !important;
+    color: #fff;
+    border-top: none;
+    border-bottom: none;
+    font-weight: 700;
+}
+.table thead th:not(:last-child) {
+    border-right: 1.5px solid rgba(255,255,255,0.25);
+}
+
+/* Table body: add separators between columns */
+.table tbody td:not(:last-child) {
+    border-right: 1.5px solid #e0e6f7;
+}
+
+/* Primary button: blue-violet to pink gradient */
+.btn-primary {
+    background: linear-gradient(90deg, #7f53ac 0%, #f957a6 100%);
+    border: none;
+    color: #fff;
+}
+.btn-primary:focus, .btn-primary:hover {
+    background: linear-gradient(90deg, #f957a6 0%, #7f53ac 100%);
+    color: #fff;
+}
+
+/* Colorful circular delete button: blue-violet to pink */
+.btn-delete {
+    background: linear-gradient(135deg, #7f53ac 0%, #f957a6 100%);
+    color: #fff !important;
+    border: none;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.2s, background 0.2s;
+    box-shadow: 0 2px 8px rgba(127, 83, 172, 0.15);
+}
+.btn-delete:hover, .btn-delete:focus {
+    background: linear-gradient(135deg, #f957a6 0%, #7f53ac 100%);
+    box-shadow: 0 4px 16px rgba(249, 87, 166, 0.25);
+    color: #fff !important;
+}
+
+/* Labels and form controls */
+.form-label {
+    font-weight: 600;
+    color: #7f53ac;
+}
+.form-control, .form-select {
+    border-radius: 0.75rem;
+    border: 1px solid #e0e6f7;
+    background: #f7f9ff;
+}
+.form-control:focus, .form-select:focus {
+    border-color: #7f53ac;
+    box-shadow: 0 0 0 0.15rem #f957a655;
+}
+/* Gradient text for the main title */
+.gradient-title {
+    background: linear-gradient(90deg, #7f53ac 0%, #f957a6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 900;
+    letter-spacing: -1px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Animated underline */
+.gradient-title::after {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width: 60%;
+    height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #f957a6 0%, #7f53ac 100%);
+    animation: underline-grow 1.2s cubic-bezier(.77,0,.18,1) 1;
+    transition: width 0.3s;
+}
+
+.gradient-title:hover::after {
+    width: 80%;
+}
+
+@keyframes underline-grow {
+    from { width: 0; opacity: 0; }
+    to { width: 60%; opacity: 1; }
+}
+
+/* Weather icon decoration */
+.weather-icon-glow {
+    font-size: 4rem;
+    color: #f9d923;
+    filter: drop-shadow(0 0 16px #f957a6aa);
+    margin-bottom: 0.5rem;
+}
+
+.section-title {
+    background: linear-gradient(90deg, #7f53ac 0%, #f957a6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+    letter-spacing: -0.5px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    margin: 0.35rem auto 0 auto;
+    width: 60%;
+    height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #f957a6 0%, #7f53ac 100%);
+    opacity: 0.85;
+    transition: width 0.3s;
+}
+
+.section-title:hover::after {
+    width: 80%;
+}
