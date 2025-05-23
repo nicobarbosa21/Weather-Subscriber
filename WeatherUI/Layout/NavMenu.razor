@@ -1,25 +1,26 @@
 ﻿<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">Nico's Weather App</a>
+        <a class="navbar-brand" href="">Menu</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
     </div>
 </div>
 
-<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
-    <nav class="nav flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="weather">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
-            </NavLink>
-        </div>
-    </nav>
+<div class="nav-item px-3">
+    <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+        <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+    </NavLink>
+</div>
+<div class="nav-item px-3">
+    <NavLink class="nav-link" href="notifier">
+        <span class="bi bi-envelope-paper-heart" aria-hidden="true"></span> Notifier
+    </NavLink>
+</div>
+<div class="nav-item px-3">
+    <NavLink class="nav-link" href="weather">
+        <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
+    </NavLink>
 </div>
 
 @code {

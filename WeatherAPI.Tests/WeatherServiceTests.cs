@@ -15,8 +15,8 @@ public class WeatherServiceTests
     [Fact]
     public void FormatForecast_ReturnsNoDataMessage_WhenListIsNull()
     {
-        var service = new WeatherService(null, new DummyConfig());
-        var result = service.FormatForecast(null);
+        var service = new WeatherService(new HttpClient(), new DummyConfig());
+        var result = service.FormatForecast(null, "Cordoba");
         Assert.Equal("No forecast data available.", result);
     }
 
@@ -41,9 +41,20 @@ public class WeatherServiceTests
             }
         };
 
-        var result = service.FormatForecast(forecast);
+        var result = service.FormatForecast(forecast, "Cordoba");
         Assert.Contains("2024-05-22: Min 10°C, Max 22°C", result);
     }
+}
+
+// Dummy implementation for IWeatherClient or similar dependency
+public interface IWeatherClient
+{
+    // Define required members here if needed for your tests
+}
+
+public class DummyWeatherClient : IWeatherClient
+{
+    // Implement required members with dummy logic or throw NotImplementedException if not used in tests
 }
 
 // Helper config for testing

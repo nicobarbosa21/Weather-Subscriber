@@ -4,7 +4,6 @@
 <PageTitle>Weather</PageTitle>
 
 <div class="text-center mb-5">
-    <i class="bi bi-cloud-sun weather-icon-glow"></i>
     <h1 class="gradient-title mt-3 mb-2">Weather Forecast</h1>
     <p class="lead text-muted mb-0" style="font-weight:500;">
         Check the latest forecast for your favorite city.
@@ -12,11 +11,13 @@
 </div>
 
 <div class="row justify-content-center">
-    <div class="col-lg-6">
-        <div class="card shadow-sm mb-4">
-            <div class="card-body p-4">
-                <h2 class="section-title">Select City</h2>
-                <select @bind="selectedCity" @bind:after="OnCityChanged" class="form-select mb-4" style="max-width: 350px; margin: 0 auto; display: block;">
+    <div class="col-md-6 col-lg-5">
+        <div class="card shadow-sm mb-4" style="min-height: 270px;">
+            <div class="card-body p-4 d-flex flex-column align-items-center justify-content-center">
+                <span class="bi bi-geo-alt-fill text-primary mb-3" style="font-size:2.5rem; background: linear-gradient(90deg, #7f53ac 0%, #f957a6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></span>
+                <h2 class="section-title mb-2">Select City</h2>
+                <p class="text-muted mb-3" style="font-size:1rem;">Choose a city to see its weather forecast.</p>
+                <select @bind="selectedCity" @bind:after="OnCityChanged" class="form-select mb-2" style="max-width: 220px;">
                     @foreach (var c in cities)
                     {
                         <option value="@c">@c</option>
@@ -26,40 +27,47 @@
         </div>
     </div>
 </div>
+
 <div class="row justify-content-center">
-    <h2 class="section-title mt-4">Forecast for @city</h2>
-        @if (forecasts == null)
-        {
-            <p><em>Loading...</em></p>
-        }
-        else if (forecasts.Count == 0)
-        {
-            <p>No forecast data available.</p>
-        }
-        else
-        {
-            <div class="table-responsive">
-                <table class="table align-middle mb-0">
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Min (°C)</th>
-                            <th>Max (°C)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var forecast in forecasts)
-                        {
-                            <tr>
-                                <td>@forecast.Date.ToString("yyyy-MM-dd")</td>
-                                <td>@forecast.Min</td>
-                                <td>@forecast.Max</td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
+    <div class="col-lg-8">
+        <div class="card shadow-sm mb-4">
+            <div class="card-body p-4 text-center">
+                <h2 class="section-title mt-2">Forecast for @city</h2>
+                @if (forecasts == null)
+                {
+                    <p><em>Loading...</em></p>
+                }
+                else if (forecasts.Count == 0)
+                {
+                    <p>No forecast data available.</p>
+                }
+                else
+                {
+                    <div class="table-responsive text-start"> <!-- Add text-start here to keep table left-aligned -->
+                        <table class="table align-middle mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Min (°C)</th>
+                                    <th>Max (°C)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var forecast in forecasts)
+                                {
+                                    <tr>
+                                        <td>@forecast.Date.ToString("yyyy-MM-dd")</td>
+                                        <td>@forecast.Min</td>
+                                        <td>@forecast.Max</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
             </div>
-        }
+        </div>
+    </div>
 </div>
 
 @code {

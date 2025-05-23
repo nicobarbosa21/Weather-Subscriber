@@ -317,3 +317,17 @@ body {
 .section-title:hover::after {
     width: 80%;
 }
+
+.nav-link .bi {
+    font-size: 1.2rem;
+    margin: 0;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1.15rem;
+}
