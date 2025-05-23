@@ -1,0 +1,100 @@
+@page "/"
+@inject HttpClient Http
+@inject IJSRuntime JS
+
+<h3>Subscribe to Weather Notification</h3>
+
+<EditForm Model="subscriber" OnValidSubmit="HandleValidSubmit">
+    <InputText @bind-Value="subscriber.Name" placeholder="Name" />
+    <InputText @bind-Value="subscriber.Email" placeholder="Email" />
+    <select @bind="subscriber.City">
+        @foreach (var c in cities)
+        {
+            <option value="@c">@c</option>
+        }
+    </select>
+    <button type="submit">Subscribe</button>
+</EditForm>
+
+@if (!string.IsNullOrEmpty(Message))
+{
+    <div>@Message</div>
+}
+
+<h4 class="mt-4">Subscribers</h4>
+@if (subscribers == null)
+{
+    <p><em>Loading...</em></p>
+}
+else if (subscribers.Count == 0)
+{
+    <p>No subscribers yet.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>City</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var sub in subscribers)
+            {
+                <tr>
+                    <td>@sub.Name</td>
+                    <td>@sub.Email</td>
+                    <td>@sub.City</td>
+                    <td>
+                        <button class="btn btn-danger btn-sm" @onclick="() => ConfirmDelete(sub.Email)">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    Subscriber subscriber = new();
+    List<Subscriber>? subscribers;
+    string? Message;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadSubscribers();
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        var response = await Http.PostAsJsonAsync("http://localhost:5000/subscribers", subscriber);
+        Message = await response.Content.ReadAsStringAsync();
+        subscriber = new(); // Clear form
+        await LoadSubscribers();
+    }
+
+    private async Task LoadSubscribers()
+    {
+        subscribers = await Http.GetFromJsonAsync<List<Subscriber>>("http://localhost:5000/subscribers");
+    }
+
+    private async Task ConfirmDelete(string email)
+    {
+        if (await JS.InvokeAsync<bool>("confirm", $"Are you sure you want to delete {email}?"))
+        {
+            await Http.DeleteAsync($"http://localhost:5000/subscribers/{email}");
+            await LoadSubscribers();
+        }
+    }
+
+    private List<string> cities = CityList.Cities;
+
+    public class Subscriber
+    {
+        public string Name { get; set; } = "";
+        public string Email { get; set; } = "";
+        public string City { get; set; } = "";
+    }
+ }

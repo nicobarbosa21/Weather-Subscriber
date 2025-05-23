@@ -1,0 +1,81 @@
+﻿@page "/weather"
+@inject HttpClient Http
+
+<PageTitle>Weather</PageTitle>
+
+<h1>Weather for @city</h1>
+
+<select @bind="selectedCity" @bind:after="OnCityChanged" class="form-select mb-3" style="width: 300px;">
+    @foreach (var c in cities)
+    {
+        <option value="@c">@c</option>
+    }
+</select>
+
+@if (forecasts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else if (forecasts.Count == 0)
+{
+    <p>No forecast data available.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Min (°C)</th>
+                <th>Max (°C)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var forecast in forecasts)
+            {
+                <tr>
+                    <td>@forecast.Date.ToString("yyyy-MM-dd")</td>
+                    <td>@forecast.Min</td>
+                    <td>@forecast.Max</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<string> cities = CityList.Cities;
+    private string selectedCity = "Mina Clavero";
+    private List<DailyForecast>? forecasts;
+    private string city = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadForecast();
+    }
+
+    private async Task OnCityChanged()
+    {
+        await LoadForecast();
+    }
+
+    private async Task LoadForecast()
+    {
+        var result = await Http.GetFromJsonAsync<ForecastResult>($"http://localhost:5000/forecast?city={Uri.EscapeDataString(selectedCity)}");
+        city = result?.City ?? "";
+        forecasts = result?.Forecasts ?? new List<DailyForecast>();
+    }
+
+    public class ForecastResult
+    {
+        public string City { get; set; } = "";
+        public List<DailyForecast> Forecasts { get; set; } = new();
+    }
+
+    public class DailyForecast
+    {
+        public DateTime Date { get; set; }
+        public float Min { get; set; }
+        public float Max { get; set; }
+    }
+}

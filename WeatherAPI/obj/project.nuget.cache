@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "fHuHT/bb+wU=",
+  "success": true,
+  "projectFilePath": "C:\\Endava\\EndevLocal\\Weather\\WeatherAPI\\WeatherAPI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\nbarbosa\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.5\\microsoft.aspnetcore.openapi.9.0.5.nupkg.sha512",
+    "C:\\Users\\nbarbosa\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}
