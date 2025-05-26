@@ -44,7 +44,7 @@ protected override async Task ExecuteAsync(CancellationToken stoppingToken)
             // Log or handle general scheduler error
             Console.WriteLine($"Scheduler error: {ex.Message}");
         }
-        await Task.Delay(TimeSpan.FromMinutes(10), stoppingToken);
+        await Task.Delay(TimeSpan.FromHours(12), stoppingToken);
     }
 }
 }
